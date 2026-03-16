@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CNPJ Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Consulta Corporativa</h1>
+            <p>Insira o CNPJ para obter detalhes atualizados</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="cnpjInput" placeholder="00.000.000/0000-00" maxlength="18">
+            <button onclick="buscarCNPJ()" id="btnBusca">Consultar</button>
+        </div>
+
+        <div id="loader" class="loader" style="display: none; text-align: center; margin-top: 20px;">Carregando...</div>
+
+        <div id="resultCard" class="card" style="display: none;">
+            <div class="card-header">
+                <h2 id="res_razao"></h2>
+            </div>
+            
+            <div class="card-body">
+                <div class="info-group"><strong>Nome Fantasia:</strong> <span id="res_fantasia"></span></div>
+                <div class="info-group"><strong>CNPJ:</strong> <span id="res_cnpj"></span></div>
+                <div class="info-group"><strong>Atividade Principal:</strong> <span id="res_atividade"></span></div>
+                <div class="info-group"><strong>Capital Social:</strong> <span id="res_capital"></span></div>
+                <div class="info-group"><strong>Endereço:</strong> <span id="res_endereco"></span></div>
+                <div class="info-group"><strong>Telefone:</strong> <span id="res_telefone"></span></div>
+            </div>
+
+            <div class="card-footer" style="padding: 20px;">
+                <button onclick="gerarPDF()" class="btn-pdf">Gerar Relatório PDF</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
